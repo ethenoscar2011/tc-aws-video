@@ -45,4 +45,9 @@ TC_AWS_LOADER_VIDEO_FRAME_CACHE='/path/to/your/cache'
 
 # Enable this loader
 LOADER = 'tc_aws_video.s3_video_loader'
+
+# Pay attention to this config 
+# If you didn't set to no storage , you may occur 504
+# Although this will slow down the request , you can set the cdn for caching the result
+STORAGE = "thumbor.storages.no_storage"
 ```
