@@ -1,0 +1,3 @@
+thumbor.conf
+.idea/**
+tc_aws_video/**/**.pyc
