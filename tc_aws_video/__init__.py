@@ -1,10 +1,11 @@
 # coding: utf-8
+import tempfile
+
+from thumbor.config import Config
 
 # Copyright (c) 2015, thumbor-community
 # Use of this source code is governed by the MIT license that can be
 # found in the LICENSE file.
-
-from thumbor.config import Config
 
 Config.define('TC_AWS_REGION', 'eu-west-1', 'S3 region', 'S3')
 Config.define('TC_AWS_STORAGE_BUCKET', None, 'S3 bucket for Storage', 'S3')
@@ -24,3 +25,5 @@ Config.define('TC_AWS_RANDOMIZE_KEYS', False,
               'Should S3 keys be randomized? Defaults to False for BC, for performance, should be set to True', 'S3')
 Config.define('TC_AWS_ROOT_IMAGE_NAME', '',
               'When resizing a URL that ends in a slash, what should the corresponding cache key be?', 'S3')
+Config.define('TC_AWS_LOADER_VIDEO_FRAME_CACHE', tempfile.gettempdir(),
+              'Where to cache the first frame of video , and will delete when the frame return future!', 'S3')

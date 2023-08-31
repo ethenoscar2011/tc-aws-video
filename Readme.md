@@ -12,7 +12,8 @@
 
 ### Authentication
 
-Authentication is handled by botocore, see [Boto3 documentation](https://boto3.readthedocs.org/en/latest/guide/quickstart.html#configuration).
+Authentication is handled by botocore,
+see [Boto3 documentation](https://boto3.readthedocs.org/en/latest/guide/quickstart.html#configuration).
 
 ## Origin story
 
@@ -20,13 +21,14 @@ If you store the images or videos in s3 compatible storage , such as aws , minio
 
 And now, you want to access the images or the first frame of the videos on it.
 
-
 This is a custom loader will help you to do this!
-
 
 ## Features
 
- * tc_aws_video.s3_video_loader
+| version | loader                                 | python version | change log desc                             |
+|:--------|:---------------------------------------|:---------------|:--------------------------------------------|
+| v1.0.2  | `tc_aws_video.s3_video_loader`         | python2        | Add feature to cut the first frame of video |
+| v1.1.2  | `tc_aws_video.loaders.s3_video_loader` | python2        | Optimize code to speed up loading           |
 
 Additional Configuration values used:
 
@@ -44,13 +46,23 @@ TC_AWS_LOADER_SECRET_KEY='your-s3-secret'
 TC_AWS_LOADER_VIDEO_FRAME_CACHE='/path/to/your/cache'
 
 # Enable this loader
-LOADER = 'tc_aws_video.s3_video_loader'
+
+# When using v1.0.2
+# LOADER = 'tc_aws_video.s3_video_loader'
+
+# When using v1.1.2+
+LOADER = 'tc_aws_video.loaders.s3_video_loader'
 
 # Pay attention to this config 
 # If you have cdn to access this , then you can set to no_storage
-STORAGE = "thumbor.storages.no_storage"
+# STORAGE = "thumbor.storages.no_storage"
 # else if you just want to cache the file into local storage , you can use file_storage 
 # but you should remember , if you use the file_storage , the files will persistent in the file system until you remove them
+STORAGE = "thumbor.storages.file_storage"
+STORAGE_EXPIRATION_SECONDS = 900
 FILE_STORAGE_ROOT_PATH = '/path/to/you/cache'
-RESULT_STORAGE_EXPIRATION_SECONDS = 60
+RESULT_STORAGE = 'thumbor.result_storages.file_storage'
+RESULT_STORAGE_EXPIRATION_SECONDS=900
+RESULT_STORAGE_FILE_STORAGE_ROOT_PATH = '/path/to/you/cache'
+RESULT_STORAGE_STORES_UNSAFE = True
 ```
