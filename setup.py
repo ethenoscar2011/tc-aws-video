@@ -7,7 +7,7 @@ with open("Readme.md", "r") as fh:
 
 setup(
     name='tc_aws_video',
-    version='1.0.1',
+    version='1.0.2',
     packages=find_packages(),
     long_description=long_description,
     long_description_content_type="text/markdown",
