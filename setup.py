@@ -7,15 +7,16 @@ with open("Readme.md", "r") as fh:
 
 setup(
     name='tc_aws_video',
-    version='1.1.2',
+    version='2.0.1',
     packages=find_packages(),
     long_description=long_description,
     long_description_content_type="text/markdown",
     install_requires=[
-        'thumbor>=6.0.0,<7',
+        'thumbor>=7.0.0',
         'botocore',
         'subprocess32',
-        'tc_aws'
+        'tc_aws>=7.0.1',
+        'pycurl'
     ],
     url='https://github.com/ethenoscar2011/tc-aws-video',
     author='Ethenoscar',
