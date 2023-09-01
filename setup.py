@@ -18,6 +18,18 @@ setup(
         'tc_aws>=7.0.1',
         'pycurl'
     ],
+    classifiers=[
+        "Development Status :: 5 - Production/Stable",
+        "Intended Audience :: Developers",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+        "Topic :: Software Development :: Libraries :: Python Modules",
+        "Topic :: Internet",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.6",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
+    ],
     url='https://github.com/ethenoscar2011/tc-aws-video',
     author='Ethenoscar',
     author_email='ethenoscar2011@gmail.com',
