@@ -43,10 +43,12 @@ async def load(context, url):
     # If you cannot guess the mime type, then get content type from bucket stat info.
     is_img = _is_image(mime_type)
     is_vdo = _is_video(mime_type)
+    is_checked_stat = False
 
     if mime_type is None:
         try:
             content_type = await Bucket(bucket, aws_region, aws_endpoint).stat(key)
+            is_checked_stat = True
             if _is_image(content_type):
                 is_img = True
             elif _is_video(content_type):
@@ -95,6 +97,9 @@ async def load(context, url):
             context.config.get('TC_AWS_MAX_RETRY')
         )
         try:
+            # PreSignedUrl not check the object status, we should check it.
+            if not is_checked_stat:
+                await Bucket(bucket, aws_region, aws_endpoint).stat(key)
             pre_signed_url = await loader.get_url(key)
         except ClientError as err:
             logger.error(
