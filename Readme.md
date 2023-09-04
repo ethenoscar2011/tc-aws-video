@@ -30,6 +30,7 @@ This is a custom loader will help you to do this!
 | v1.0.2  | `tc_aws_video.s3_video_loader`         | python2        | Add feature to cut the first frame of video |
 | v1.1.2  | `tc_aws_video.loaders.s3_video_loader` | python2        | Optimize code to speed up loading           |
 | v2.0.1  | `tc_aws_video.loaders.s3_video_loader` | python3+       | Optimize code to speed up loading           |
+| v2.0.2  | `tc_aws_video.loaders.s3_video_loader` | python3+       | Fix 502 to 404 while video not existed      |
 
 Additional Configuration values used:
 
